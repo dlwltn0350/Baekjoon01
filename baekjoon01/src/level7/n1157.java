@@ -30,11 +30,10 @@ public class n1157 {
 				tmp=i;
 			}
 			else if(max==arr[i] && max!=0) n=max;
-		
+		}
 		
 		if(n==max) System.out.println("?");
 		else if(max!=0) System.out.println((char)(tmp+65));
 	}
 
-}
 }
