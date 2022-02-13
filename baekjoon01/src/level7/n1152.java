@@ -8,16 +8,14 @@ public class n1152 {
 		// TODO Auto-generated method stub
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String[] s= br.readLine().split(" ");
-		
-		int cnt=0;
-		
-		for(int i=0;i<s.length;i++) {
-			if(s[i]==" ") continue;
-			cnt++;
+		String s= br.readLine().trim();
+		String[] arr;
+		if(s=="") System.out.println(0);
+		else {
+			arr=s.split(" ");
+			System.out.println(arr.length);
 		}
 		
-		System.out.println(cnt);
 		
 	}
 
