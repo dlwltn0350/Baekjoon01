@@ -2,6 +2,7 @@ package level10;
 /**
  * 참고 : https://hyunipad.tistory.com/88
  * 가운데를 제외한 나머지 8군데에 같은 패턴이 나타나니까, 각각을 담당하도록 하는 재귀 호출들을 하게끔 함수를 작성
+ * 수행시간을 줄이기 위해 bufferedReader, bufferedWriter사용
  */
 import java.io.*;
 import java.util.Arrays;
@@ -25,6 +26,7 @@ public class n2447 {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); //시간단축효과
 		int n=Integer.parseInt(br.readLine());
 		arr = new char[n][n];
 
@@ -35,9 +37,10 @@ public class n2447 {
 		f(n,0,0);
 		
 		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) System.out.print(arr[i][j]);
-			System.out.println();
+			for(int j=0;j<n;j++) bw.write(arr[i][j]);
+			bw.write("\n");
 		}
+		bw.flush();
 	}
 
 }
