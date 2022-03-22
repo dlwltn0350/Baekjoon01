@@ -73,6 +73,42 @@ public class 정렬 {
 		}
 	}
 	
+	public static void quick_sort(int left, int right) {//퀵정렬 : pivot을 하나 정해서 pivot보다 작은 요소를 왼쪽으로. 큰 요소를 오른쪽으로 정렬한다. O(NlongN)
+		
+		if(left<right) { //원소가 2개 이상
+			int pivot=partition(left, right);
+			quick_sort(left, pivot-1);
+			quick_sort(pivot+1, right);
+		}
+	}
+	
+	public static int partition(int left, int right) {
+		int pivot = (left+right)/2; //중간값으로 선택
+		int tmp;
+		
+		while(left<right) {
+			while(left<=right && arr[left]<arr[pivot]) left++;
+			while(left<=right && arr[right]>arr[pivot]) right--;
+			
+			if(left<=right) {
+				tmp=arr[left];
+				arr[left]=arr[right];
+				arr[right]=tmp; //swap
+				
+				if(right==pivot) return left;
+			}
+		}
+		
+		
+		if(right!=pivot) {
+			tmp=arr[right];
+			arr[right]=arr[pivot];
+			arr[pivot]=tmp;
+		}// left는 다 끝났는데 right가 남아있는 경우
+		
+		return right;
+		
+	}
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
@@ -84,6 +120,7 @@ public class 정렬 {
 			arr[i]=Integer.parseInt(br.readLine());
 		
 		//merge_sort();
+		quick_sort(0,arr.length-1);
 		for(int i=0;i<n;i++)
 			System.out.print(arr[i]+" ");
 		
