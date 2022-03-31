@@ -38,6 +38,20 @@ public class 정렬 {
 		
 	}
 	
+	public static void bubble_sort() {
+		int tmp;
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr.length-i;j++) {
+				if (arr[j] > arr[j + 1]) {
+					tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				}
+			}
+		}
+	}
+	
 	public static void merge_sort() { //합병정렬 -> https://todaycode.tistory.com/54 참고
 		tmp=new int[arr.length];
 		merge_sort(0,arr.length-1);
