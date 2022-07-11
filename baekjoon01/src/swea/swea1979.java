@@ -31,7 +31,7 @@ public class swea1979 {
 				if(flag==k) cnt++;
 				flag=0;
 			}
-			//세로 check
+			//세로 check 
 			for(int i=0;i<N;i++) {
 				for(int j=0;j<N;j++) {
 					if(arr[j][i]==1) flag++;
